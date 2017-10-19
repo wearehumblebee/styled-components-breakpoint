@@ -4,6 +4,10 @@
   "description": "Utility functions for creating breakpoints in styled-components.",
   "main": "lib/index.js",
   "scripts": {
+    "prebuild": "rimraf lib",
+    "build": "npm-run-all --parallel build:*",
+    "build:umd": "webpack",
+    "build:es6": "babel src --out-dir lib --ignore spec.js --source-maps",
     "commitmsg": "validate-commit-msg",
     "cz-commit": "git-cz",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
@@ -28,19 +32,37 @@
   "homepage": "https://github.com/wearehumblebee/styled-components-breakpoint.git#readme",
   "devDependencies": {
     "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
     "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.2.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "flow-bin": "^0.57.3",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
     "npm-run-all": "^4.1.1",
+    "react": "^16.0.0",
     "rimraf": "^2.6.1",
     "semantic-release": "^8.2.0",
     "semantic-release-cli": "^3.0.3",
     "styled-components": "^2.2.1",
-    "validate-commit-msg": "^2.14.0"
+    "validate-commit-msg": "^2.14.0",
+    "webpack": "^3.8.1"
   },
-  "peerDependency": {
+  "peerDependencies": {
     "styled-components": "^2"
   },
   "config": {
@@ -48,5 +70,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "codecov": "^2.3.1"
+  }
 }

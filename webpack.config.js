@@ -1,18 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const hotMiddlewareScript = 'webpack-hot-middleware/client?name=bundle';
-
-
 const PATHS = {
   app: path.join(__dirname, 'src', 'index.js'),
-  build: path.join(__dirname, 'public', 'assets', 'scripts'),
+  build: path.join(__dirname, 'lib'),
 };
 
 module.exports = {
   entry: {
     // Add the client which connects to our middleware
-    client: ['babel-polyfill', PATHS.app, hotMiddlewareScript],
+    client: ['babel-polyfill', PATHS.app],
   },
   output: {
     path: PATHS.build,
@@ -32,7 +29,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader', 'react-hot-loader/webpack'],
+        loaders: ['babel-loader'],
       },
       {
         test: /\.jsx?$/,
