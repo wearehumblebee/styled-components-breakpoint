@@ -9,12 +9,12 @@ const PATHS = {
 module.exports = {
   entry: {
     // Add the client which connects to our middleware
-    client: ['babel-polyfill', PATHS.app],
+    index: ['babel-polyfill', PATHS.app],
   },
   output: {
     path: PATHS.build,
-    filename: 'bundle.js',
-    publicPath: '/assets/scripts/',
+    filename: '[name].umd.js',
+    libraryTarget: 'umd',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.scss'],
