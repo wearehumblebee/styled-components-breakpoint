@@ -1,14 +1,21 @@
 // @flow
 import { css } from 'styled-components';
 
+// Flow-types
+type Rule = 'up' | 'down' | 'only';
+type Breakpoints = {[string]: number};
+
 // Breakpoint
-export const mediaWidthRule = rule => `${{ up: 'min', down: 'max' }[rule] || 'min'}-width`;
-export const ruleTemplate = (rule, width) => `(${rule}: ${width}px)`;
-export const mediaTemplate = rules => (
+export const mediaWidthRule = (rule: Rule) => (
+  `${{ up: 'min', down: 'max' }[rule] || 'min'}-width`
+);
+
+export const ruleTemplate = (rule: Rule, width: number) => `(${rule}: ${width}px)`;
+export const mediaTemplate = (rules: string) => (
   `@media only screen and ${rules}`
 );
 
-export const getSmallestMedia = (breakpoints): number => {
+export const getSmallestMedia = (breakpoints: Breakpoints): number => {
   const keys: string[] = Object.keys(breakpoints);
 
   return (
@@ -21,7 +28,7 @@ export const getSmallestMedia = (breakpoints): number => {
   );
 };
 
-export const getNextMedia = (breakpoints, width): number => {
+export const getNextMedia = (breakpoints: Breakpoints, width: number): number => {
   const keys: string[] = Object.keys(breakpoints);
 
   const nextBreakpoint = Number(keys.reduce((acc: ?number, key: string): number => {
@@ -38,7 +45,8 @@ export const getNextMedia = (breakpoints, width): number => {
   return nextBreakpoint;
 };
 
-export const mediaRules = (breakpoints, widthKey, rule, boundKey) => {
+export const mediaRules =
+(breakpoints: Breakpoints, widthKey: string, rule: Rule, boundKey: string) => {
   const width = breakpoints[widthKey];
   const bound = breakpoints[boundKey];
   let baseWidthRule = mediaWidthRule(rule);
@@ -66,7 +74,7 @@ export const mediaRules = (breakpoints, widthKey, rule, boundKey) => {
   return [].concat([baseRule], boundRule ? [boundRule] : []).join(' and ');
 };
 
-export const getMedias = (breakpoints, rule, method = false) => (
+export const getMedias = (breakpoints: Breakpoints, rule: Rule, method: boolean = false) => (
   Object.keys(breakpoints).reduce((acc, key) => {
     // Create a method that accepts a bound media
     const boundMethod = bound => (
@@ -85,7 +93,7 @@ export const getMedias = (breakpoints, rule, method = false) => (
   }, {})
 );
 
-export const getMedia = (breakpoints) => {
+export const getMedia = (breakpoints: Breakpoints) => {
   const mediasUp = getMedias(breakpoints, 'up');
 
   return ({
