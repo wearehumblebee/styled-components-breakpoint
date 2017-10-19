@@ -7,7 +7,7 @@ import {
   getSmallestMedia,
   getNextMedia,
   mediaRules,
-} from './media';
+} from './';
 
 const breakpoints = {
   xs: 320,
