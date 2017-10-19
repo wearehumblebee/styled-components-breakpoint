@@ -1,0 +1,52 @@
+{
+  "name": "humblebee-styled-components-breakpoint",
+  "version": "0.0.0-development",
+  "description": "Utility functions for creating breakpoints in styled-components.",
+  "main": "lib/index.js",
+  "scripts": {
+    "commitmsg": "validate-commit-msg",
+    "cz-commit": "git-cz",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "setup": "npm-run-all setup:*",
+    "setup:semantic-release": "semantic-release-cli setup",
+    "setup:commitizen": "commitizen init cz-conventional-changelog --save-dev --save-exact",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "repository": "https://github.com/wearehumblebee/styled-components-breakpoint.git",
+  "keywords": [],
+  "author": "John Persson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wearehumblebee/styled-components-breakpoint.git/issues"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "homepage": "https://github.com/wearehumblebee/styled-components-breakpoint.git#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "npm-run-all": "^4.1.1",
+    "rimraf": "^2.6.1",
+    "semantic-release": "^8.2.0",
+    "semantic-release-cli": "^3.0.3",
+    "styled-components": "^2.2.1",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "peerDependency": {
+    "styled-components": "^2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {}
+}

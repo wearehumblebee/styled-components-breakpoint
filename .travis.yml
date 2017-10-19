@@ -1,0 +1,21 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
+before_install:
+  - if [[ `npm -v` != 5.4* ]]; then npm i -g npm@5.4; fi
+  - nvm --version
+node_js:
+  - '8'
+before_script:
+  - npm prune
+script:
+  - npm run build
+after_success:
+  - npm run report-coverage
+  - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

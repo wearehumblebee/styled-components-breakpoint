@@ -1,0 +1,15 @@
+# Ignore all NPM modules except private Volvo modules
+**/node_modules/*
+
+# Ignore file system files
+.DS_Store
+
+# Ignore build files
+lib
+
+# Ignore all types installed by flow-typed but keep the custom definitions
+**/flow-typed/*
+!**/flow-typed/custom-definitions
+
+# Ignore test coverage folder
+coverage

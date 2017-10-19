@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": [
+    "jest",
+    "flowtype"
+  ],
+  "settings": {
+    "import/extensions": [".js", ".jsx", ".scss"],
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    },
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": false
+    }
+  },
+  "env" : {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "no-underscore-dangle": 0,
+    "no-console": 0,
+    "react/sort-comp": ["error", {
+      "order": [
+        "type-annotations",
+        "state",
+        "static-methods",
+        "lifecycle",
+        "/^on.+$/",
+        "/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
+        "everything-else",
+        "/^render.+$/",
+        "render"
+      ]
+    }]
+  }
+}
