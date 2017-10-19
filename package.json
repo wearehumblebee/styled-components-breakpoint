@@ -1,5 +1,5 @@
 {
-  "name": "humblebee-styled-components-breakpoint",
+  "name": "@humblebee/styled-components-breakpoint",
   "version": "0.0.0-development",
   "description": "Utility functions for creating breakpoints in styled-components.",
   "main": "lib/index.js",
