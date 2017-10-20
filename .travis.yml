@@ -14,9 +14,9 @@ before_script:
   - npm install
 script:
   - npm run test
-  - npm run test:coverage
   - npm run build
 after_success:
+  - npm run test:coverage
   - npm run report-coverage
   - npm run semantic-release
 branches:

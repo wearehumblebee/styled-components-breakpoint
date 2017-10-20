@@ -10,7 +10,7 @@
     "build:es6": "babel src --out-dir lib --ignore spec.js --source-maps",
     "commitmsg": "validate-commit-msg",
     "cz-commit": "git-cz",
-    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "report-coverage": "codecov",
     "setup": "npm-run-all setup:*",
     "setup:semantic-release": "semantic-release-cli setup",
     "setup:commitizen": "commitizen init cz-conventional-changelog --save-dev --save-exact",
@@ -30,6 +30,10 @@
     "dist",
     "README.md"
   ],
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  },
   "homepage": "https://github.com/wearehumblebee/styled-components-breakpoint.git#readme",
   "devDependencies": {
     "babel": "^6.23.0",
