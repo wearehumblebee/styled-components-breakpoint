@@ -144,4 +144,5 @@ If no argument is passed the next upper breakpoint will be used implicitly. For 
 
 ---
 
-Happy coding! Wishes the bees at [Humblebee](https://humblebee.se) 🐝
+Happy coding!
+/The bees at [Humblebee](http://humblebee.se) 🐝
