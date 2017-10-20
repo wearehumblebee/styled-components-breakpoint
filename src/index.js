@@ -79,7 +79,7 @@ export const getMedias = (breakpoints: Breakpoints, rule: Rule, method: boolean 
     // Create a method that accepts a bound media
     const boundMethod = bound => (
       (...args) => css`
-          ${mediaTemplate(breakpoints, mediaRules(breakpoints, key, rule, bound))}{
+          ${mediaTemplate(mediaRules(breakpoints, key, rule, bound))}{
             ${css(...args)}
           }
         `
