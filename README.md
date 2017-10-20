@@ -81,7 +81,7 @@ export const breakpoint = styledBreakpoint({
 
 ---
 
-#### breakpoint.m.up
+#### breakpoint.up.m
 
 In the "Usage and example" section we made use of the function `breakpoint.m`, this is a shorthand for writing `breakpoint.up.m`. The reason for this shorthand is to encourage the usage of mobile-first breakpoints, i.e. `min-width` media queries.
 
@@ -90,57 +90,57 @@ The functions `breakpoint.m` and `breakpoint.up.m` are the same.
 ```javascript
 const Button = styled.button`
     background: white;
-    ${breakpoint.m.up}`
+    ${breakpoint.up.m}`
       background: palevioletred;
     `
   `
 });
 ```
 
-#### breakpoint.m.down
+#### breakpoint.down.m
 
 In contrast to `breakpoint.up`, `breakpoint.down` goes the opposite direction and returns a `max-width` media query. The example below would return the media query `@media only screen and (min-width: 768px)`.
 
 ```javascript
 const Button = styled.button`
     background: white;
-    ${breakpoint.m.down}`
+    ${breakpoint.down.m}`
       background: palevioletred;
     `
   `
 });
 ```
 
-#### breakpoint.m.only(breakpoint?)
+#### breakpoint.only.m(breakpoint?)
 
 Unlike `up` and `down`, the `only` function accepts an optional breakpoint argument in the form of a string. This argument is used to return a range media query, between the breakpoint used in the executing function and the passed argument.
-For example, executing `breakpoint.m.only('xl')`, will return a range between the `m` and `xl` breakpoints.
+For example, executing `breakpoint.only.m('xl')`, will return a range between the `m` and `xl` breakpoints.
 ```javascript
-`breakpoint.m.only('xl')`
+`breakpoint.only.m('xl')`
 // Will return:
 // @media only screen and (min-width: 768px) and (max-width: 1200px)
 ```
 
 It works just as well to pass a smaller breakpoint than the executing function. For example starting at breakpoint `m` and going down to `s`.
 ```javascript
-`breakpoint.m.only('s')`
+`breakpoint.only.m('s')`
 // Will return:
 // @media only screen and (max-width: 768px) and (min-width: 576px)
 ```
 
-If no argument is passed the next upper breakpoint will be used implicitly. For example, executing `breakpoint.m.only()`, will return a range between the `m` and `l` breakpoints.
+If no argument is passed the next upper breakpoint will be used implicitly. For example, executing `breakpoint.only.m()`, will return a range between the `m` and `l` breakpoints.
 
 ```javascript
-`breakpoint.m.only()`
+`breakpoint.only.m()`
 // Will return:
 // @media only screen and (min-width: 768px) and (max-width: 992px)
 ```
 
 **Important! Even if no breakpoint argument is passed to `only`, it is still necessary to actually execute the function. If not no media query will be returned.**
 
-**Correct: breakpoint.m.only()**
+**Correct: breakpoint.only.m()**
 
-**Wrong: breakpoint.m.only**
+**Wrong: breakpoint.only.m**
 
 ---
 
