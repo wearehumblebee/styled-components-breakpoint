@@ -20,7 +20,7 @@
     "test:watch": "jest --watch"
   },
   "repository": "https://github.com/wearehumblebee/styled-components-breakpoint.git",
-  "keywords": [],
+  "keywords": ["react", "styled-components", "utils", "glamour", "styles", "css", "inline-stykes", "breakpoint", "breakpints", "media-query", "media-queries"],
   "author": "John Persson",
   "license": "MIT",
   "bugs": {
