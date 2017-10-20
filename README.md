@@ -113,7 +113,7 @@ const Button = styled.button`
 
 #### breakpoint.m.only(breakpoint?)
 
-Unlike `up` and `down`, the `only` function accepts an optional breakpoint parameter in the form of a string. This parameter is used to return a range media query, between the breakpoint used in the executing function and the passed parameter.
+Unlike `up` and `down`, the `only` function accepts an optional breakpoint argument in the form of a string. This argument is used to return a range media query, between the breakpoint used in the executing function and the passed argument.
 For example, executing `breakpoint.m.only('xl')`, will return a range between the `m` and `xl` breakpoints.
 ```javascript
 `breakpoint.m.only('xl')`
@@ -136,7 +136,7 @@ If no argument is passed the next upper breakpoint will be used implicitly. For 
 // @media only screen and (min-width: 768px) and (max-width: 992px)
 ```
 
-**Important! Even if no breakpoint parameter is passed to `only`, it is still necessary to actually execute the function. If not no media query will be returned.**
+**Important! Even if no breakpoint argument is passed to `only`, it is still necessary to actually execute the function. If not no media query will be returned.**
 
 **Correct: breakpoint.m.only()**
 
