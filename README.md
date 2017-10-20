@@ -1,6 +1,7 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![codecov](https://codecov.io/gh/wearehumblebee/styled-components-breakpoint/branch/master/graph/badge.svg)](https://codecov.io/gh/wearehumblebee/styled-components-breakpoint)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
 
 ## Styled Components Breakpoint 💅
 This package provides a friendly API for working with breakpoints in [Styled Components](https://www.styled-components.com/). It allows you to set up any number of breakpoints with a naming convention of your choice.
@@ -66,7 +67,7 @@ The function `breakpoint.m` will result in the following media query: `'@media o
 
 ## API
 
-Continuing on the above example, you have access to all the other breakpoints in the same manner, in our case: `breakpoint.xs`, `breakpoint.s`, `breakpoint.m`, `breakpoint.l`, `breakpoint.xl`. As mentioned in the intro you can add as many breakpoints as you like with any naming convention you prefer. If you prefer the naming used in Twitter Bootstrap, your config object would look like this.
+Continuing on the above example, you have access to all the other breakpoints in the same manner, in our case: `breakpoint.xs`, `breakpoint.s`, `breakpoint.m`, `breakpoint.l`, `breakpoint.xl`. As mentioned in the intro you can add as many breakpoints as you like with any naming convention you prefer. If you prefer the naming convention used in Twitter Bootstrap, your config object would look like this.
 
 ```javascript
 export const breakpoint = styledBreakpoint({
@@ -82,9 +83,9 @@ export const breakpoint = styledBreakpoint({
 
 #### breakpoint.m.up
 
-In the "Usage and example" section we made use of the function `breakpoint.m`, this is a shorthand for writing `breakpoint.up.m`. The reason for this shorthand is to encourage the usage of mobile-first breakpoints, i.e. `max-width` media queries.
+In the "Usage and example" section we made use of the function `breakpoint.m`, this is a shorthand for writing `breakpoint.up.m`. The reason for this shorthand is to encourage the usage of mobile-first breakpoints, i.e. `min-width` media queries.
 
-These functions are the same `breakpoint.m` `breakpoint.up.m`.
+The functions `breakpoint.m` and `breakpoint.up.m` are the same.
 
 ```javascript
 const Button = styled.button`
@@ -98,8 +99,7 @@ const Button = styled.button`
 
 #### breakpoint.m.down
 
-In contrast to `breakpoint.up`, `breakpoint.down` goest does the opposite direction and returns a `max-width` media query. Using this in it's place would result in the media query `@media only screen and (max-width: 768px)`.
-
+In contrast to `breakpoint.up`, `breakpoint.down` goes the opposite direction and returns a `max-width` media query. The example below would return the media query `@media only screen and (min-width: 768px)`.
 
 ```javascript
 const Button = styled.button`
@@ -113,7 +113,7 @@ const Button = styled.button`
 
 #### breakpoint.m.only(breakpoint?)
 
-Unlike `up` and `down`, the `only` function accepts an optional breakpoint parameters in the form of a string. This parameter is used to return a range media query, between the breakpoint used in the executing function and the passed parameter.
+Unlike `up` and `down`, the `only` function accepts an optional breakpoint parameter in the form of a string. This parameter is used to return a range media query, between the breakpoint used in the executing function and the passed parameter.
 For example, executing `breakpoint.m.only('xl')`, will return a range between the `m` and `xl` breakpoints.
 ```javascript
 `breakpoint.m.only('xl')`
@@ -132,7 +132,7 @@ If no argument is passed the next upper breakpoint will be used implicitly. For 
 
 ```javascript
 `breakpoint.m.only()`
-// Will return a range between "m" and "l":
+// Will return:
 // @media only screen and (min-width: 768px) and (max-width: 992px)
 ```
 
