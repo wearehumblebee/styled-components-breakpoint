@@ -46,7 +46,7 @@ export const getNextMedia = (breakpoints: Breakpoints, width: number): number =>
 };
 
 export const mediaRules =
-(breakpoints: Breakpoints, widthKey: string, rule: Rule, boundKey: string) => {
+(breakpoints: Breakpoints, widthKey: string, rule: Rule, boundKey?: string) => {
   const width = breakpoints[widthKey];
   const bound = breakpoints[boundKey];
   let baseWidthRule = mediaWidthRule(rule);
@@ -74,16 +74,18 @@ export const mediaRules =
   return [].concat([baseRule], boundRule ? [boundRule] : []).join(' and ');
 };
 
-export const getMedias = (breakpoints: Breakpoints, rule: Rule, method: boolean = false) => (
-  Object.keys(breakpoints).reduce((acc, key) => {
+export const getMixin = (breakpoints: Breakpoints, key: string, rule: Rule = 'up') => (bound: string) => (
+  (...args) => css`
+      ${mediaTemplate(mediaRules(breakpoints, key, rule, bound))}{
+        ${css(...args)}
+      }
+    `
+);
+
+export const getMediaShorthands = (breakpoints, rule, method: boolean = false) => (
+  Object.keys(breakpoints).reduce((acc: Object, key: string) => {
     // Create a method that accepts a bound media
-    const boundMethod = bound => (
-      (...args) => css`
-          ${mediaTemplate(mediaRules(breakpoints, key, rule, bound))}{
-            ${css(...args)}
-          }
-        `
-    );
+    const boundMethod = getMixin(breakpoints, key, rule);
 
     return ({
       ...acc,
@@ -94,13 +96,13 @@ export const getMedias = (breakpoints: Breakpoints, rule: Rule, method: boolean 
 );
 
 export const getMedia = (breakpoints: Breakpoints) => {
-  const mediasUp = getMedias(breakpoints, 'up');
+  const mediasUp = getMediaShorthands(breakpoints, 'up');
 
   return ({
     ...mediasUp,
-    up: { ...mediasUp },
-    down: { ...getMedias(breakpoints, 'down') },
-    only: { ...getMedias(breakpoints, 'only', true) },
+    up: (widthKey: string) => getMixin(breakpoints, widthKey, 'up'),
+    down: (widthKey: string) => getMixin(breakpoints, widthKey, 'down'),
+    only: (widthKey: string, boundKey: string) => getMixin(breakpoints, widthKey, 'only')(boundKey),
   });
 };
 
