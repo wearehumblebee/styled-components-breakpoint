@@ -24,7 +24,7 @@
   "author": "John Persson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wearehumblebee/styled-components-breakpoint.git/issues"
+    "url": "https://github.com/wearehumblebee/styled-components-breakpoint/issues"
   },
   "files": [
     "dist",
