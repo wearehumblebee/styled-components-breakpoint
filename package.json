@@ -20,7 +20,19 @@
     "test:watch": "jest --watch"
   },
   "repository": "https://github.com/wearehumblebee/styled-components-breakpoint",
-  "keywords": ["react", "styled-components", "utils", "glamour", "styles", "css", "inline-stykes", "breakpoint", "breakpints", "media-query", "media-queries"],
+  "keywords": [
+    "react",
+    "styled-components",
+    "utils",
+    "glamour",
+    "styles",
+    "css",
+    "inline-styles",
+    "breakpoint",
+    "breakpoints",
+    "media-query",
+    "media-queries"
+  ],
   "author": "John Persson",
   "license": "MIT",
   "bugs": {
@@ -76,5 +88,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "@humblebee/styled-components-breakpoint": "^1.2.1"
+  }
 }
