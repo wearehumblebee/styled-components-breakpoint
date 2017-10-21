@@ -19,7 +19,7 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
   },
-  "repository": "https://github.com/wearehumblebee/styled-components-breakpoint",
+  "repository": "https://github.com/wearehumblebee/styled-components-breakpoint.git",
   "keywords": [
     "react",
     "styled-components",
@@ -36,7 +36,7 @@
   "author": "John Persson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wearehumblebee/styled-components-breakpoint.git/issues"
+    "url": "https://github.com/wearehumblebee/styled-components-breakpoint/issues"
   },
   "files": [
     "dist",
@@ -46,7 +46,7 @@
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
   },
-  "homepage": "https://github.com/wearehumblebee/styled-components-breakpoint.git#readme",
+  "homepage": "https://github.com/wearehumblebee/styled-components-breakpoint#readme",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
