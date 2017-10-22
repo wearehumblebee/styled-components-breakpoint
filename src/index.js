@@ -82,17 +82,11 @@ export const getMixin = (breakpoints: Breakpoints, key: string, rule: Rule = 'up
     `
 );
 
-export const getMediaShorthands = (breakpoints, rule, method: boolean = false) => (
-  Object.keys(breakpoints).reduce((acc: Object, key: string) => {
-    // Create a method that accepts a bound media
-    const boundMethod = getMixin(breakpoints, key, rule);
-
-    return ({
-      ...acc,
-      // If the method argument is true the result of mediaTemplate is returnd
-      [key]: method ? boundMethod : boundMethod(),
-    });
-  }, {})
+export const getMediaShorthands = (breakpoints, rule) => (
+  Object.keys(breakpoints).reduce((acc: Object, key: string) => ({
+    ...acc,
+    [key]: getMixin(breakpoints, key, rule)(),
+  }), {})
 );
 
 export const getMedia = (breakpoints: Breakpoints) => {
@@ -100,8 +94,8 @@ export const getMedia = (breakpoints: Breakpoints) => {
 
   return ({
     ...mediasUp,
-    up: (widthKey: string) => getMixin(breakpoints, widthKey, 'up'),
-    down: (widthKey: string) => getMixin(breakpoints, widthKey, 'down'),
+    up: (widthKey: string) => getMixin(breakpoints, widthKey, 'up')(),
+    down: (widthKey: string) => getMixin(breakpoints, widthKey, 'down')(),
     only: (widthKey: string, boundKey: string) => getMixin(breakpoints, widthKey, 'only')(boundKey),
   });
 };
