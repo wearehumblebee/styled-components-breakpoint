@@ -4,14 +4,9 @@
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
 
 ## Styled Components Breakpoint 💅
-This package provides a set of utility functions for working with CSS media queries in [Styled Components](https://www.styled-components.com/).
+This library provides utility functions for dealing with media queries, to make them reusable and easier to read. It can be used as an alternative to SASS/LESS mixins.
 
-#### Why do I need this?
-Media queries can easily become unwieldy and difficult to read at first glance, and we usually want a way to make them reusable through out our project. In SASS and LESS this problem is often solved using mixins. Mixins help to abstracting the otherwise verbose nature of media queries, making them both more readable and easier to type.
-This library provides a small set of utiltiy functions that solves these same problems for dealing with media queries in [Styled Components](https://www.styled-components.com/).
-
-This library allows you to set up any number of breakpoints with a naming convention of your choice.
-Once set up you'll have three main utility functions for each breakpoint: `up` (min-width), `down` (max-width), and `only` (a range between two media queries).
+More on mixins and [Styled Components](https://www.styled-components.com/) in [this article](https://github.com/styled-components/styled-components/blob/master/docs/tips-and-tricks.md).
 
 ---
 
@@ -23,14 +18,14 @@ npm install @humblebee/styled-components-breakpoint
 ```
 ---
 
-### Usage and examples
+### Usage and setup
 
-The default export of `styled-components-breakpoint` is a function that accepts a `config` object with your breakpoints. This will return an instance with the utility function `up`, `down` and `only`.
+The default export of `styled-components-breakpoint` is a function that accepts a `config` object of breakpoints. This will return an object with three main utility methods/mixins: `up` (min-width), `down` (max-width) and `only` (a range between two media queries), all described in detail below.
 
 ```javascript
 import styledBreakpoint from '@humblebee/styled-components-breakpoint';
 
-// Creates an instance of styled-components-breakpoint with an object of breakpoints.
+// Creates an object with breakpoint utility methods.
 export const breakpoint = styledBreakpoint({
   xs: 320,
   s: 576,
@@ -39,8 +34,6 @@ export const breakpoint = styledBreakpoint({
   xl: 1200,
 });
 ```
-
-In the example above the `const breakpoint` With this config in place you can make use of the breakpoints in the following way:
 
 #### Up
 ```javascript
@@ -71,11 +64,11 @@ breakpoint.only('m', 'xl')
 
 #### Shorthand
 
-To encourage mobile first media queries (min-width) there is a shorthand, or alias if you will. `breakpoint.m` is an alias for `breakppoint.up('m')`.
+There is also a shorthand for mobile first media queries (min-width). Calling `breakpoint.m` is the same as `breakppoint.up('m')`.
 
 ```javascript
 `breakpoint.m'`
-// Will return:
+// Will return a media query with a min-width of 768
 // @media only screen and (min-width: 768px)
 ```
 ---
@@ -83,10 +76,10 @@ To encourage mobile first media queries (min-width) there is a shorthand, or ali
 ### Usage with styled components
 In the following example we create a styled button component.
 
-Here's an example folder structure. I like to keep my mixins close to my other global styles to make them easy to discover, in this case the theme folder.
+This is the folder structure we'll be working with.
 ```
 .
-+--componsnts
++--components
 |  +--Button.js
 +--themes
 |  +--mixins.js
@@ -113,9 +106,6 @@ import styled from 'styled-components';
 // Our breakpoint instance/mixin
 import { breakpoint } from '../../theme/mixins';
 
-// The first function "breakpoint.down(s)" will give the styled button component a font size of 12px, at a breakpoint lover than "s", i.e. max-width(320px).
-
-// The second function "breakpoint.m", uses the short hand version of `"breakpoint.up.('m')"`, and will give the button a background of palevioletred  at a breakpoint higher than "m", i.e. min-width(768).
 const Button = styled.button`
     background: white;
     font-size: 18px;
@@ -128,12 +118,13 @@ const Button = styled.button`
   `
 });
 ```
----
 
-#### Recommended read
-For more on "mixins" in [Styled Components](https://www.styled-components.com/).
+The first mixin `breakpoint.down(s)`, will give the styled button component a font size of 12px, at a breakpoint lower than "s", i.e. max-width(320px).
+
+The second mixin `breakpoint.m`, uses the short hand version of `breakpoint.up.('m')`, and will give the button a background of `palevioletred`, at a breakpoint higher than "m", i.e. min-width(768).
 
 ---
 
 Happy coding!
-/The bees at [Humblebee](http://humblebee.se) 🐝
+
+/ The bees at [Humblebee](http://humblebee.se) 🐝
