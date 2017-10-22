@@ -17,7 +17,7 @@ yarn install @humblebee/styled-components-breakpoint
 npm install @humblebee/styled-components-breakpoint
 ```
 ---
-
+``
 ### Usage and setup
 
 The default export of `styled-components-breakpoint` is a function that accepts a `config` object of breakpoints. This will return an object with three main utility methods/mixins: `up` (min-width), `down` (max-width) and `only` (a range between two media queries), all described in detail below.
@@ -64,7 +64,7 @@ breakpoint.only('m', 'xl')
 
 #### Shorthand
 
-There is also a shorthand for mobile first media queries (min-width). Calling `breakpoint.m` is the same as `breakppoint.up('m')`.
+There is also a shorthand for mobile first media queries (min-width). Calling `breakpoint.m` is the same as `breakpoint.up('m')`.
 
 ```javascript
 `breakpoint.m'`
