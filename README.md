@@ -67,7 +67,7 @@ breakpoint.only('m', 'xl')
 There is also a shorthand for mobile first media queries (min-width). Calling `breakpoint.m` is the same as `breakpoint.up('m')`.
 
 ```javascript
-`breakpoint.m'`
+breakpoint.m
 // Will return a media query with a min-width of 768
 // @media only screen and (min-width: 768px)
 ```
@@ -119,9 +119,9 @@ const Button = styled.button`
 });
 ```
 
-The first mixin `breakpoint.down(s)`, will give the styled button component a font size of 12px, at a breakpoint lower than "s", i.e. max-width(320px).
+The first mixin `breakpoint.down(s)`, will give the styled button component a font size of 12px, at a breakpoint bellow "s", i.e. max-width(320px).
 
-The second mixin `breakpoint.m`, uses the short hand version of `breakpoint.up.('m')`, and will give the button a background of `palevioletred`, at a breakpoint higher than "m", i.e. min-width(768).
+The second mixin `breakpoint.m`, uses the short hand version of `breakpoint.up.('m')`, and will give the button a background of `palevioletred`, at a breakpoint above "m", i.e. min-width(768).
 
 ---
 

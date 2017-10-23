@@ -88,7 +88,5 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "dependencies": {
-    "@humblebee/styled-components-breakpoint": "^1.2.1"
-  }
+  "dependencies": {}
 }
