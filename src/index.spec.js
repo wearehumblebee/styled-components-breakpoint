@@ -125,5 +125,10 @@ describe('breakpoint', () => {
         expect(bp.xl`baground: red;`[1]).toMatch('@media only screen and (min-width: 1200px)');
       });
     });
+    describe('list', () => {
+      it('stores an array of breakpoints in the order they where defined', () => {
+        expect(bp.list).toEqual(['xs', 's', 'm', 'l', 'xl']);
+      })
+    });
   });
 });

@@ -91,12 +91,14 @@ export const getMediaShorthands = (breakpoints, rule) => (
 
 export const getMedia = (breakpoints: Breakpoints) => {
   const mediasUp = getMediaShorthands(breakpoints, 'up');
+  const list = Object.keys(breakpoints);
 
   return ({
     ...mediasUp,
     up: (widthKey: string) => getMixin(breakpoints, widthKey, 'up')(),
     down: (widthKey: string) => getMixin(breakpoints, widthKey, 'down')(),
     only: (widthKey: string, boundKey: string) => getMixin(breakpoints, widthKey, 'only')(boundKey),
+    list,
   });
 };
 
