@@ -109,7 +109,7 @@ import { breakpoint } from '../../theme/mixins';
 const Button = styled.button`
     background: white;
     font-size: 18px;
-    ${breakpoint.down(s)}`
+    ${breakpoint.down('s')}`
       font-size: 12px;
     `
     ${breakpoint.m}`
@@ -119,7 +119,7 @@ const Button = styled.button`
 });
 ```
 
-The first mixin `breakpoint.down(s)`, will give the styled button component a font size of 12px, at a breakpoint bellow "s", i.e. max-width(320px).
+The first mixin `breakpoint.down('s')`, will give the styled button component a font size of 12px, at a breakpoint bellow "s", i.e. max-width(320px).
 
 The second mixin `breakpoint.m`, uses the short hand version of `breakpoint.up.('m')`, and will give the button a background of `palevioletred`, at a breakpoint above "m", i.e. min-width(768).
 
