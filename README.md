@@ -29,7 +29,7 @@ import styledBreakpoint from '@humblebee/styled-components-breakpoint';
 
 // Creates an object with breakpoint utility methods.
 export const breakpoint = styledBreakpoint({
-  xxs: 320,
+  xxs: 0,
   xs: 320,
   s: 576,
   m: 768,
