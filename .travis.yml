@@ -17,8 +17,8 @@ script:
   - npm run build
 after_success:
   - npm run test:coverage
-  - npm run report-coverage
   - npm run semantic-release
+  - bash <(curl -s https://codecov.io/bash) -e TRAVIS_NODE_VERSION
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
