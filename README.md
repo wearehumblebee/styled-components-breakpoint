@@ -110,15 +110,16 @@ import styled from 'styled-components';
 import { breakpoint } from '../../theme/mixins';
 
 const Button = styled.button`
-  background: white;
-  font-size: 18px;
-  ${breakpoint.down('s')`
-    font-size: 12px;
-  `}
-  ${breakpoint.s`
-    background: palevioletred;
-  `}
-`;
+    background: white;
+    font-size: 18px;
+    ${breakpoint.down('s')}`
+      font-size: 12px;
+    `
+    ${breakpoint.m}`
+      background: palevioletred;
+    `
+  `
+});
 ```
 
 The first mixin `breakpoint.down('s')`, will give the styled button component a font size of 12px, at a breakpoint bellow "s", i.e. max-width(320px).
